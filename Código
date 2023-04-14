@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Feliz Aniversário!</title>
+    <style>
+      body {
+  background-image: url("https://img.freepik.com/vetores-premium/fundo-de-balao-de-aniversario_11368-80.jpg");
+  background-size: cover;
+}
+      h1 {
+        color: black;
+        text-align: center;
+        font-size: 60px;
+        margin-top: 200px;
+      }
+      p {
+        font-family: cursive;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 50px;
+      }
+      button {
+        margin-top: 20px;
+        font-size: 20px;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Feliz Aniversário, Nath!!!!</h1>
+    <p>Migaaaa, hoje é o seu aniversário e eu quero desejar a você um dia cheio de amor, alegria e muitas felicidades! Continue sendo a pessoa que sempre traz alegria para o local que está presente. Eu tenho CERTEZA que sempre posso contar contigo e saiba que sempre pode contar comigo para qualquer coisa!! Separei algumas perguntas para você e se você acertar todas, vai ganhar um prêmio. Vamos lá!!!</p>
+
+    <p>Qual a personagem de Harry Potter eu digo que você se parece?</p>
+    <button id="btnPresente">Hermione Granger</button>
+    <button id="btnNaoPresente">Luna Lovegood</button>
+
+    <p>Qual foi a primeira música do Luan Santana deu toquei para você?</p>
+    <button id="btnCantar">Cê topa</button>
+    <button id="btnNaoCantar">As lembranças vão na mala</button>
+
+    <p>O que mais fazemos como amigos?</p>
+    <button id="btnNaoDiscurso">Dançar</button>
+    <button id="btnDiscurso">Fofocar</button>
+
+    <script>
+      const btnPresente = document.getElementById("btnPresente");
+      const btnNaoPresente = document.getElementById("btnNaoPresente");
+      const btnCantar = document.getElementById("btnCantar");
+      const btnNaoCantar = document.getElementById("btnNaoCantar");
+      const btnDiscurso = document.getElementById("btnDiscurso");
+      const btnNaoDiscurso = document.getElementById("btnNaoDiscurso");
+
+      function mostrarNovaMensagem() {
+	const novaMensagem = document.createElement("p");
+	novaMensagem.textContent = "Parabéns Nazinha!! Espero que tenha gostado das surpresas! Eu e meu irmão iremos te mandar um vídeo especial quando acabarmos de ensaiar rsrs. Aguarde a parte 2!!";
+	novaMensagem.style.textAlign = "center";
+	novaMensagem.style.fontSize = "30px";
+	novaMensagem.style.marginTop = "50px";
+	document.body.appendChild(novaMensagem);
+      }
+
+
+      function checarRespostas() {
+  if (btnPresente.dataset.resposta === 'sim' &&
+      btnCantar.dataset.resposta === 'sim' &&
+      btnDiscurso.dataset.resposta === 'sim') {
+    mostrarNovaMensagem();
+  }
+}
+
+      btnPresente.addEventListener("click", function() {
+	alert("Exatamente, você é a cara da Hermione quando ta vestida pro trabalho!");
+  	document.querySelector("p:nth-of-type(2)").style.display = "none";
+  	btnPresente.style.display = "none";
+  	btnNaoPresente.style.display = "none";
+  	btnPresente.dataset.resposta = 'sim';
+  	checarRespostas();
+      });
+
+      btnNaoPresente.addEventListener("click", function() {
+  	alert("Você sabe que essa não é a resposta certa. Tente novamente.");
+      });
+
+      btnCantar.addEventListener("click", function() {
+ 	 alert("Isso mesmo!! Nesse dia descobrimos que você era Luanete");
+  	document.querySelector("p:nth-of-type(3)").style.display = "none";
+  	btnCantar.style.display = "none";
+  	btnNaoCantar.style.display = "none";
+  	btnCantar.dataset.resposta = 'sim';
+  	checarRespostas();
+      });
+
+      btnNaoCantar.addEventListener("click", function() {
+	alert("Não!! Essa foi a primeira música que você pediu pra gente tocar.");
+      });
+
+      btnDiscurso.addEventListener("click", function() {
+	alert("AMO fofocar com você!!");
+	document.querySelector("p:nth-of-type(4)").style.display = "none";
+	btnDiscurso.style.display = "none";
+	btnNaoDiscurso.style.display = "none";
+	btnDiscurso.dataset.resposta = 'sim';
+	checarRespostas();
+      });
+
+      btnNaoDiscurso.addEventListener("click", function() {
+	alert("Você sabe que essa não é a resposta certa. Tente novamente.");
+      });
+
+
+    </script>
+  </body>
+</html>
